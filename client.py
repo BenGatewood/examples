@@ -284,7 +284,6 @@ class OciClient:
         self.user = user
         self.plain_password = plain_password
 
-        # self.oci = BroadworksOCI("/Users/ben/PycharmProjects/oci_client_v2/schema")
         self.oci = BroadworksOCI(os.environ["SCHEMA_DIR"])
 
         self.headers = {'SOAPAction': '', 'Cookie': ''}
@@ -323,7 +322,7 @@ class OciClient:
             return False
 
     def logout(self, user: str) -> bool:
-        # Clean up XSP connection=
+        # Clean up XSP connection
         print("Sending Logout Request to the XSP")
         lo = self.send_oci("LogoutRequest", [{"userId": user}])
 
